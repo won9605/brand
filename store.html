@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>TIRE CODI</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
+    <link rel="stylesheet" href="css/animate.css">
+    
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
+
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+	    	<a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo"></a>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="fa fa-bars"></span> Menu
+	      </button>
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto">
+	        	<li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+	        	<li class="nav-item"><a href="tire.html" class="nav-link">TIRE</a></li>
+	        	<li class="nav-item"><a href="guide.html" class="nav-link">GUIDE</a></li>
+	        	<li class="nav-item active"><a href="store.html" class="nav-link">Store</a></li>
+	          <li class="nav-item"><a href="faq.html" class="nav-link">SERVICE</a></li>
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+    <!-- END nav -->
+    <section class="hero-wrap hero-wrap-2" style="background-image: url('images/store-top.jpg');" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-end" style="height: 200px;">
+          <div class="col-md-9 ftco-animate pb-5">
+            <h1 class="mb-2 bread">매장안내</h1>
+			<p class="breadcrumbs"><span>가까운 매장을 검색할 수 있습니다.</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ftco-section bg-white">
+      <div class="container pr-3 pl-3 pb-3">
+        <div class="row mb-5 pr-3 pl-3 pb-3">
+          <div class="col-md-12 p-0">
+            <p class="h4 mb-4">본사안내</p>
+            <div id="map" style="width:100%;height:450px;"></div>
+          </div>
+        </div>
+          <div class="row p-0">
+            <div class="col-md-12">
+              <p class="h4 mb-4">전국 매장찾기</p>
+            </div>
+            <div class="col-md-2 form-group">
+              <label for="address">시/도 선택</label>
+              <select class="form-control" id="address" name="address" onchange="addressChange(this); addr(this)">
+                <option value="cityall">시/도 를 선택해주세요</option>
+                <option value="서울" class="control-seoul">서울</option>
+                <option value="경기" class="control-gyeonggi">경기</option>
+                <option value="인천" class="control-incheon">인천</option>
+              </select>
+            </div>
+            <div class="col-md-2 form-group">
+              <label for="address-sub">지역 선택</label>
+              <select class="form-control" id="address-sub" name="address-sub" onchange="searchgz(this)">
+                <option>지역을 선택해주세요</option>
+              </select>
+            </div>
+            <div class="col-md-5"></div>
+            <div class="col-md-3">
+              <p class="mb-2">매장이름/주소로 찾기</p>
+              <input onkeyup="filter()" type="text" id="valuez" placeholder="예)강남,삼척,영동" class="w-100 p-2 address-search">
+            </div>
+          </div>
+          
+        <!-- 매장세부정보 시작 -->
+          <div class="row mt-5 p-4 store-b-line seoul gangdong s-name">
+            <div class="col-md-12 p-0">
+              <div class="col-md-8 d-flex align-items-center p-0 m-600-center">
+                <div>
+                  <img src="images/logo.png" alt="로고" style="width: 80%;">
+                </div>
+                <p class="h5-5 m-0 ml-2 store-line fw-b">강동점</p>
+              </div>
+            </div>
+            <div class="col-md-12 mt-4 p-0">
+              <div class="col-md-6 p-0 m-600-center">
+                <p class="mb-0 s-item">서울특별시 강동구 양재대로 1580 (명일동, 사랑플러스빌딩)</p>
+              </div>
+            </div>
+            <div class="col-md-12 p-0">
+              <div class="col-md-6 p-0 m-600-center">
+                <p class="mb-0"><span class="fw-b">영업시간</span>: 09:00~18:00(평일) <span class="fw-b">TEL</span>: 02-774-5424</p>
+              </div>
+            </div>
+            <div class="col-md-12 p-0">
+              <div class="map-store map-store1 pt-4">
+                <div id="map-gangdong" style="width:100%;height:300px;"></div>
+              </div>
+            </div>
+            <i class="xi-angle-down-thin fa-angle-down1"></i>
+            <i class="xi-angle-up-thin fa-angle-up1"></i>
+          </div>
+          <!-- 강서 -->
+          <div class="row mt-5 p-4 store-b-line seoul gangseo s-name">
+            <div class="col-md-12 p-0">
+              <div class="col-md-8 d-flex align-items-center p-0 m-600-center">
+                <div>
+                  <img src="images/logo.png" alt="로고" style="width: 80%;">
+                </div>
+                <p class="h5-5 m-0 ml-2 store-line fw-b">강서점</p>
+              </div>
+            </div>
+            <div class="col-md-12 mt-4 p-0">
+              <div class="col-md-6 p-0 m-600-center">
+                <p class="mb-0 s-item">서울특별시 강서구 등촌3동 화곡로63길 139</p>
+              </div>
+            </div>
+            <div class="col-md-12 p-0">
+              <div class="col-md-6 p-0 m-600-center">
+                <p class="mb-0"><span class="fw-b">영업시간</span>: 09:00~18:00(평일) <span class="fw-b">TEL</span>: 02-478-6077</p>
+              </div>
+            </div>
+            <div class="col-md-12 p-0">
+              <div class="map-store map-store2 pt-4">
+                <div id="map-gangseo" style="width:100%;height:300px;"></div>
+              </div>
+            </div>
+            <i class="xi-angle-down-thin fa-angle-down2"></i>
+            <i class="xi-angle-up-thin fa-angle-up2"></i>
+          </div>
+          <!-- 강남 -->
+          <div class="row mt-5 p-4 store-b-line seoul gangnam s-name">
+            <div class="col-md-12 p-0">
+              <div class="col-md-8 d-flex align-items-center p-0 m-600-center">
+                <div>
+                  <img src="images/logo.png" alt="로고" style="width: 80%;">
+                </div>
+                <p class="h5-5 m-0 ml-2 store-line fw-b">강남점</p>
+              </div>
+            </div>
+            <div class="col-md-12 mt-4 p-0">
+              <div class="col-md-6 p-0 m-600-center">
+                <p class="mb-0 s-item">서울특별시 강남구 대치동 테헤란로 504 해성빌딩 4</p>
+              </div>
+            </div>
+            <div class="col-md-12 p-0">
+              <div class="col-md-6 p-0 m-600-center">
+                <p class="mb-0"><span class="fw-b">영업시간</span>: 10:00~19:00(평일) <span class="fw-b">TEL</span>: 02-282-8765</p>
+              </div>
+            </div>
+            <div class="col-md-12 p-0">
+              <div class="map-store map-store3 pt-4">
+                <div id="map-gangnam" style="width:100%;height:300px;"></div>
+              </div>
+            </div>
+            <i class="xi-angle-down-thin fa-angle-down3"></i>
+            <i class="xi-angle-up-thin fa-angle-up3"></i>
+          </div>
+          <!-- 강북 -->
+          <div class="row mt-5 p-4 store-b-line seoul gangbuk s-name">
+            <div class="col-md-12 p-0">
+              <div class="col-md-8 d-flex align-items-center p-0 m-600-center">
+                <div>
+                  <img src="images/logo.png" alt="로고" style="width: 80%;">
+                </div>
+                <p class="h5-5 m-0 ml-2 store-line fw-b">강북점</p>
+              </div>
+            </div>
+            <div class="col-md-12 mt-4 p-0">
+              <div class="col-md-6 p-0 m-600-center">
+                <p class="mb-0 s-item">서울특별시 강북구 수유3동 230-1</p>
+              </div>
+            </div>
+            <div class="col-md-12 p-0">
+              <div class="col-md-6 p-0 m-600-center">
+                <p class="mb-0"><span class="fw-b">영업시간</span>: 10:00~19:00(평일) <span class="fw-b">TEL</span>: 02-668-3719</p>
+              </div>
+            </div>
+            <div class="col-md-12 p-0">
+              <div class="map-store map-store4 pt-4">
+                <div id="map-gangbuk" style="width:100%;height:300px;"></div>
+              </div>
+            </div>
+            <i class="xi-angle-down-thin fa-angle-down4"></i>
+            <i class="xi-angle-up-thin fa-angle-up4"></i>
+          </div>
+        <!-- 경기도 시작 -->
+            <div class="row mt-5 p-4 store-b-line gyeonggi kimpo s-name">
+              <div class="col-md-12 p-0">
+                <div class="col-md-8 d-flex align-items-center p-0 m-600-center">
+                  <div>
+                    <img src="images/logo.png" alt="로고" style="width: 80%;">
+                  </div>
+                  <p class="h5-5 m-0 ml-2 store-line fw-b">김포점</p>
+                </div>
+              </div>
+              <div class="col-md-12 mt-4 p-0">
+                <div class="col-md-6 p-0 m-600-center">
+                  <p class="mb-0 s-item">경기도 김포시 사우동 237-2</p>
+                </div>
+              </div>
+              <div class="col-md-12 p-0">
+                <div class="col-md-6 p-0 m-600-center">
+                  <p class="mb-0"><span class="fw-b">영업시간</span>: 08:30~17:30(평일) <span class="fw-b">TEL</span>: 031-989-4747</p>
+                </div>
+              </div>
+              <div class="col-md-12 p-0">
+                <div class="map-store map-store5 pt-4">
+                  <div id="map-kimpo" style="width:100%;height:300px;"></div>
+                </div>
+              </div>
+              <i class="xi-angle-down-thin fa-angle-down5"></i>
+              <i class="xi-angle-up-thin fa-angle-up5"></i>
+            </div>
+            <!-- 수원 -->
+            <div class="row mt-5 p-4 store-b-line gyeonggi suwon s-name">
+              <div class="col-md-12 p-0">
+                <div class="col-md-8 d-flex align-items-center p-0 m-600-center">
+                  <div>
+                    <img src="images/logo.png" alt="로고" style="width: 80%;">
+                  </div>
+                  <p class="h5-5 m-0 ml-2 store-line fw-b">수원점</p>
+                </div>
+              </div>
+              <div class="col-md-12 mt-4 p-0">
+                <div class="col-md-6 p-0 m-600-center">
+                  <p class="mb-0 s-item">경기도 수원시 장안구 영화동 328-5번지</p>
+                </div>
+              </div>
+              <div class="col-md-12 p-0">
+                <div class="col-md-6 p-0 m-600-center">
+                  <p class="mb-0"><span class="fw-b">영업시간</span>: 10:30~20:30(평일) <span class="fw-b">TEL</span>: 031-927-4872</p>
+                </div>
+              </div>
+              <div class="col-md-12 p-0">
+                <div class="map-store map-store6 pt-4">
+                  <div id="map-suwon" style="width:100%;height:300px;"></div>
+                </div>
+              </div>
+              <i class="xi-angle-down-thin fa-angle-down6"></i>
+              <i class="xi-angle-up-thin fa-angle-up6"></i>
+            </div>
+            <!-- 용인 -->
+            <div class="row mt-5 p-4 store-b-line gyeonggi yongin s-name">
+              <div class="col-md-12 p-0">
+                <div class="col-md-8 d-flex align-items-center p-0 m-600-center">
+                  <div>
+                    <img src="images/logo.png" alt="로고" style="width: 80%;">
+                  </div>
+                  <p class="h5-5 m-0 ml-2 store-line fw-b">용인점</p>
+                </div>
+              </div>
+              <div class="col-md-12 mt-4 p-0">
+                <div class="col-md-6 p-0 m-600-center">
+                  <p class="mb-0 s-item">경기도 용인시 기흥구 동백동 동백중앙로 283</p>
+                </div>
+              </div>
+              <div class="col-md-12 p-0">
+                <div class="col-md-6 p-0 m-600-center">
+                  <p class="mb-0"><span class="fw-b">영업시간</span>: 09:00~18:00(평일) <span class="fw-b">TEL</span>: 031-957-1274</p>
+                </div>
+              </div>
+              <div class="col-md-12 p-0">
+              <div class="map-store map-store7 pt-4">
+                <div id="map-yongin" style="width:100%;height:300px;"></div>
+              </div>
+            </div>
+            <i class="xi-angle-down-thin fa-angle-down7"></i>
+            <i class="xi-angle-up-thin fa-angle-up7"></i>
+            </div>
+             <!-- 인천시작 -->
+             <div class="row mt-5 p-4 store-b-line incheon seogu s-name">
+              <div class="col-md-12 p-0">
+                <div class="col-md-8 d-flex align-items-center p-0 m-600-center">
+                  <div>
+                    <img src="images/logo.png" alt="로고" style="width: 80%;">
+                  </div>
+                  <p class="h5-5 m-0 ml-2 store-line1 fw-b">인천 서구점</p>
+                </div>
+              </div>
+              <div class="col-md-12 mt-4 p-0">
+                <div class="col-md-6 p-0 m-600-center">
+                  <p class="mb-0 s-item">인천광역시 서구 마전동 인천시 서구 완정로 60 정안빌딩 1층</p>
+                </div>
+              </div>
+              <div class="col-md-12 p-0">
+                <div class="col-md-6 p-0 m-600-center">
+                  <p class="mb-0"><span class="fw-b">영업시간</span>: 09:00~18:00(평일) <span class="fw-b">TEL</span>: 032-327-1785</p>
+                </div>
+              </div>
+              <div class="col-md-12 p-0">
+              <div class="map-store map-store8 pt-4">
+                <div id="map-seogu" style="width:100%;height:300px;"></div>
+              </div>
+            </div>
+            <i class="xi-angle-down-thin fa-angle-down8"></i>
+            <i class="xi-angle-up-thin fa-angle-up8"></i>
+            </div>
+            <!-- 인천남구 -->
+            <div class="row mt-5 p-4 store-b-line incheon namgu s-name">
+              <div class="col-md-12 p-0">
+                <div class="col-md-8 d-flex align-items-center p-0 m-600-center">
+                  <div>
+                    <img src="images/logo.png" alt="로고" style="width: 80%;">
+                  </div>
+                  <p class="h5-5 m-0 ml-2 store-line1 fw-b">인천 남구점</p>
+                </div>
+              </div>
+              <div class="col-md-12 mt-4 p-0">
+                <div class="col-md-6 p-0 m-600-center">
+                  <p class="mb-0 s-item">인천광역시 남구 주안동 1446-2번지 서린상사 1층</p>
+                </div>
+              </div>
+              <div class="col-md-12 p-0">
+                <div class="col-md-6 p-0 m-600-center">
+                  <p class="mb-0"><span class="fw-b">영업시간</span>: 09:00~18:00(평일) <span class="fw-b">TEL</span>: 010-4477-4477</p>
+                </div>
+              </div>
+              <div class="col-md-12 p-0">
+                <div class="map-store map-store9 pt-4">
+                  <div id="map-namgu" style="width:100%;height:300px;"></div>
+                </div>
+              </div>
+              <i class="xi-angle-down-thin fa-angle-down9"></i>
+              <i class="xi-angle-up-thin fa-angle-up9"></i>
+            <!-- 계양구 -->
+            </div>
+            <div class="row mt-5 p-4 store-b-line incheon gyeyang s-name">
+              <div class="col-md-12 p-0">
+                <div class="col-md-8 d-flex align-items-center p-0 m-600-center">
+                  <div>
+                    <img src="images/logo.png" alt="로고" style="width: 80%;">
+                  </div>
+                  <p class="h5-5 m-0 ml-2 store-line1 fw-b">인천 계양점</p>
+                </div>
+              </div>
+              <div class="col-md-12 mt-4 p-0">
+                <div class="col-md-6 p-0 m-600-center">
+                  <p class="mb-0 s-item">인천광역시 계양구 작전동 901-4번지</p>
+                </div>
+              </div>
+              <div class="col-md-12 p-0">
+                <div class="col-md-6 p-0 m-600-center">
+                  <p class="mb-0"><span class="fw-b">영업시간</span>: 09:30~18:30(평일) <span class="fw-b">TEL</span>: 032-774-1978</p>
+                </div>
+              </div>
+              <div class="col-md-12 p-0">
+                <div class="map-store map-store10 pt-4">
+                  <div id="map-gyeyang" style="width:100%;height:300px;"></div>
+                </div>
+              </div>
+              <i class="xi-angle-down-thin fa-angle-down10"></i>
+              <i class="xi-angle-up-thin fa-angle-up10"></i>
+            </div>
+        </div>
+    </section>
+    
+    
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+        <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
+          <img src="images/logo-w.png" alt="f-logo">
+        </div>
+        <div class="col-md-6 col-lg-6 mb-4 mb-md-0">
+          <p class="pt-2">서울특별시 서초구 서초동 반포대로 90</p>
+          <p>대표번호 02-889-8282</p>
+          <p>고객만족센터 1588-8878</p>
+          <ul class="f-ul d-flex p-0">
+          <li><a href="use.html">이용약관</a></li>
+          <li class="pl-3"><a href="privacy.html">개인정보처리방침</a></li>
+          <li class="pl-3"><a href="store.html">찾아오시는 길</a></li>
+          </ul>
+          <p>Copyright ⓒ 2021 Tire Codi. all rights reserved.</p>
+        </div>
+        <div class="col-md-6 col-lg-3 mb-0">
+          <ul class="ftco-footer-social p-0 mb-0">
+          <li class="ftco-animate"><a href="https://twitter.com/" data-toggle="tooltip" data-placement="top" title="Twitter"><span class="fa fa-twitter"></span></a></li>
+          <li class="ftco-animate"><a href="https://www.facebook.com/" data-toggle="tooltip" data-placement="top" title="Facebook"><span class="fa fa-facebook"></span></a></li>
+          <li class="ftco-animate"><a href="https://www.instagram.com/" data-toggle="tooltip" data-placement="top" title="Instagram"><span class="fa fa-instagram"></span></a></li>
+            </ul>
+        </div>
+          </div>
+      </div>
+      </footer>
+    
+  
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/jquery.animateNumber.min.js"></script>
+  <script src="js/bootstrap-datepicker.js"></script>
+  <script src="js/jquery.timepicker.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/scrollax.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="js/main.js"></script>
+  <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=42223e1c9bdd10ad4073d8339e111654"></script>
+  <script src="js/kakaomap.js"></script>
+  </body>
+</html>
